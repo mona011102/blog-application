@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog App</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        
+        <h1>Blog App</h1>
+        <nav>
+            <a href="/"> Home </a>
+            <a href="/new-post"> New Post </a>
+        </nav>
+    </header>
+    <main>
+       
+        <h2>Blog Posts </h2>
+        <% if (posts.length > 0) { %>
+            <ul>
+                <% posts.forEach((post, index) => { %>
+                    <li>
+                        <h3><a href="/post/<%= index %>"><%= post.title %></a></h3>
+                        <p><%= post.content.substring(0, 100) %>...</p>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } else { %>
+            <p>No posts available.</p>
+        <% } %>
+    </main>
+</body>
+</html>
